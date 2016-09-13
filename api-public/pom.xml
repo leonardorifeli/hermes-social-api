@@ -18,8 +18,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.leonardo.hermes.social.api</groupId>
-            <artifactId>core</artifactId>
+            <groupId>com.leonardorifeli.hermes.social.api.core</groupId>
+            <artifactId>api-core</artifactId>
             <version>1.0</version>
         </dependency>
 
@@ -83,6 +83,7 @@
             </plugin>
         </plugins>
     </build>
+    
     <groupId>com.leonardorifeli.hermes.social.api</groupId>
     <version>1.0</version>
 </project>
