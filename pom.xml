@@ -18,8 +18,8 @@
 	</properties>
 	
 	<modules>
-		<module>public</module>
-		<module>core</module>
+		<module>api-public</module>
+		<module>api-core</module>
 	</modules>
 	
 	<dependencyManagement>
