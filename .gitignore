@@ -1,0 +1,13 @@
+**/bin/**
+**.lst**
+.DS_Store
+**.settings**
+**.classpath**
+**.project**
+.idea/
+*.iml
+*.class
+*.jar
+*.war
+**/target/*
+.java-version
