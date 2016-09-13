@@ -13,31 +13,11 @@
     <packaging>jar</packaging>
 
     <dependencies>
-    	<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-        </dependency>
-        
-        <dependency>
-		    <groupId>javax.persistence</groupId>
-		    <artifactId>persistence-api</artifactId>
-		</dependency>
-        
-       	<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
         </dependency>
         
-        <dependency>
-		    <groupId>org.eclipse.mylyn.github</groupId>
-		    <artifactId>org.eclipse.egit.github.core</artifactId>
-		</dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -45,6 +25,6 @@
         </dependency>
     </dependencies>
 
-    <groupId>com.leonardorifeli.hermes.social.api.core</groupId>
+    <groupId>com.leonardorifeli.hermes.social.api.job</groupId>
     <version>1.0</version>
 </project>

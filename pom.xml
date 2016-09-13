@@ -21,6 +21,7 @@
 	<modules>
 		<module>api-public</module>
 		<module>api-core</module>
+		<module>api-job</module>
 	</modules>
 	
 	<dependencyManagement>
@@ -30,6 +31,12 @@
 	            <artifactId>hibernate-core</artifactId>
 	            <version>5.2.1.Final</version>
 	        </dependency>
+	        
+	        <dependency>
+			    <groupId>javax.persistence</groupId>
+			    <artifactId>persistence-api</artifactId>
+			    <version>1.0</version>
+			</dependency>
 	        
         	<dependency>
 	            <groupId>mysql</groupId>

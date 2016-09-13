@@ -1,7 +1,12 @@
 package com.leonardorifeli.hermes.api.core.entity;
- 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
-  
+
+import com.leonardorifeli.hermes.api.core.entity.User;
+
 @Entity
 @Table(name="repository")
 public class Repository {
