@@ -15,6 +15,7 @@
 		<resteasy-version>resteasy-version</resteasy-version>
 		<junit-version>4.8.2</junit-version>
 		<rabbitmq-version>3.6.5</rabbitmq-version>
+		<github-api-version>2.1.5</github-api-version>
 	</properties>
 	
 	<modules>
@@ -47,6 +48,12 @@
                 <artifactId>amqp-client</artifactId>
                 <version>${rabbitmq-version}</version>
             </dependency>
+            
+            <dependency>
+			    <groupId>org.eclipse.mylyn.github</groupId>
+			    <artifactId>org.eclipse.egit.github.core</artifactId>
+			    <version>${github-api-version}</version>
+			</dependency>
 
             <dependency>
                 <groupId>junit</groupId>
