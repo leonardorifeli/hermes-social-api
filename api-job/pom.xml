@@ -30,6 +30,5 @@
 		</dependency>
 	</dependencies>
 
-	<groupId>com.leonardorifeli.hermes.social.api.job</groupId>
 	<version>1.0</version>
 </project>

@@ -1,6 +1,6 @@
 package com.leonardorifeli.hermes.social.api;
 
-import com.leonardorifeli.hermes.social.api.job.business.service.GithubStartMessageService;
+import com.leonardorifeli.hermes.social.api.business.service.GithubStartMessageService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

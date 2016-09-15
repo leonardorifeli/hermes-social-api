@@ -1,6 +1,6 @@
-package com.leonardorifeli.hermes.social.api.job.business.service;
+package com.leonardorifeli.hermes.social.api.business.service;
 
-import com.leonardorifeli.hermes.social.api.job.business.enums.RabbitInfoConfiguration;
+import com.leonardorifeli.hermes.social.api.business.enums.RabbitInfoConfiguration;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;

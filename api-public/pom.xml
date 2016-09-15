@@ -24,7 +24,7 @@
         </dependency>
         
         <dependency>
-            <groupId>com.leonardorifeli.hermes.social.api.job</groupId>
+            <groupId>com.leonardorifeli.hermes.social.api</groupId>
             <artifactId>api-job</artifactId>
             <version>1.0</version>
         </dependency>

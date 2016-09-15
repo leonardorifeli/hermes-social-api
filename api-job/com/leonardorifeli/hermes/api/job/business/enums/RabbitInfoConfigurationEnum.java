@@ -1,4 +1,4 @@
-package com.leonardorifeli.hermes.api.job.business.enums;
+package com.leonardorifeli.hermes.api.business.enums;
 
 public abstract class RabbitIntoConfigurationEnum {
 
