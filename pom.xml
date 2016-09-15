@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.leonardorifeli.hermes.social.api</groupId>
 	<version>1.0</version>
 	<artifactId>hermes-social-api</artifactId>
 	<packaging>pom</packaging>
-	
+
 	<properties>
 		<java-version>1.8</java-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,111 +15,118 @@
 		<junit-version>4.8.2</junit-version>
 		<rabbitmq-version>3.6.5</rabbitmq-version>
 		<github-api-version>2.1.5</github-api-version>
+		<json-simple-version>1.1.1</json-simple-version>
 	</properties>
-	
+
 	<modules>
 		<module>api-public</module>
 		<module>api-core</module>
 		<module>api-job</module>
 	</modules>
-	
+
 	<dependencyManagement>
-        <dependencies>
-	        <dependency>
-	            <groupId>org.hibernate</groupId>
-	            <artifactId>hibernate-core</artifactId>
-	            <version>5.2.1.Final</version>
-	        </dependency>
-	        
-	        <dependency>
-	            <groupId>org.hibernate</groupId>
-	            <artifactId>hibernate-entitymanager</artifactId>
-	            <version>4.1.8.Final</version>
-	        </dependency>
-	        
-	        <dependency>
-			    <groupId>javax.persistence</groupId>
-			    <artifactId>persistence-api</artifactId>
-			    <version>1.0</version>
-			</dependency>
-	        
-        	<dependency>
-	            <groupId>mysql</groupId>
-	            <artifactId>mysql-connector-java</artifactId>
-	            <version>5.1.37</version>
-	        </dependency>
-	        
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jaxrs</artifactId>
-                <version>${resteasy-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-servlet-initializer</artifactId>
-                <version>${resteasy-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jettison-provider</artifactId>
-                <version>${resteasy-version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.rabbitmq</groupId>
-                <artifactId>amqp-client</artifactId>
-                <version>${rabbitmq-version}</version>
-            </dependency>
-            
-            <dependency>
-			    <groupId>org.eclipse.mylyn.github</groupId>
-			    <artifactId>org.eclipse.egit.github.core</artifactId>
-			    <version>${github-api-version}</version>
+		<dependencies>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>5.2.1.Final</version>
 			</dependency>
 
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit-version}</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    
-    <build>
-        <plugins>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>4.1.8.Final</version>
+			</dependency>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <source>${java-version}</source>
-                    <target>${java-version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>1.0</version>
+			</dependency>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-            </plugin>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.37</version>
+			</dependency>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jaxrs</artifactId>
+				<version>${resteasy-version}</version>
+			</dependency>
 
-        </plugins>
-    </build>
-	
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-servlet-initializer</artifactId>
+				<version>${resteasy-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.resteasy</groupId>
+				<artifactId>resteasy-jettison-provider</artifactId>
+				<version>${resteasy-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.rabbitmq</groupId>
+				<artifactId>amqp-client</artifactId>
+				<version>${rabbitmq-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.mylyn.github</groupId>
+				<artifactId>org.eclipse.egit.github.core</artifactId>
+				<version>${github-api-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit-version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.googlecode.json-simple</groupId>
+				<artifactId>json-simple</artifactId>
+				<version>${json-simple-version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
 </project>
