@@ -1,18 +1,40 @@
 package com.leonardorifeli.hermes.social.api.job.business.service;
 
 import com.leonardorifeli.hermes.api.job.business.enums.GithubStartJobQueueEnum;
+import com.leonardorifeli.hermes.api.job.business.service.SendMessageService;
+
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
+import org.json.simple.JSONObject;
 
 public class GithubStartMessageService {
-	
+
 	@Inject
-	private SendService jobSendService;
-	
-	private SendService getJobSendService() {
-		return this.jobSendService
+	private SendMessageService jobSendMessageService;
+	private GithubStartJobQueueEnum jobQueueConfig;
+
+	private SendService getJobSendMessageService() {
+		return this.jobSendMessageService
 	}
-	
+
 	public void start(String username) {
-		
+		try {
+			this.getJobSendMessageService().sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
+		} catch (IOException e) {
+			
+		} catch (TimeoutException e) {
+			
+		}
 	}
-	
+
+	private String getMessageByUsername(String username) {
+		JSONObject message = new JSONObject();
+
+		message.put("username", username);
+		message.put("state", "start");
+
+		return message.toString();
+	}
+
 }
