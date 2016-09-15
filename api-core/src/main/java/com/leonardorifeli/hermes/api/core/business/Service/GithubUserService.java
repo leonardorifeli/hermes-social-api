@@ -7,10 +7,10 @@ import javax.persistence.Query;
 import java.util.List;
 
 public class GithubUserService {
-	
+
 	@PersistenceContext(unitName = "user", type = PersistenceContextType.EXTENDED)
-    private EntityManager entityManager;
-	
+	private EntityManager entityManager;
+
 	private EntityManager getEm() {
 		return this.entityManager;
 	}

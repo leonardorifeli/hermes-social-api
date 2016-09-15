@@ -18,13 +18,13 @@ public class GithubUser {
 
 	private String email;
 
-	@OneToMany(mappedBy="github_repository", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "github_repository", cascade = CascadeType.PERSIST)
 	private List<GithubRepository> githubRepositories = new ArrayList<GithubRepository>();
 
 	public List<GithubRepository> getGithubRepositories() {
 		if (this.githubRepositories == null)
 			this.githubRepositories = new ArrayList<GithubRepository>();
-		
+
 		return this.githubRepositories;
 	}
 
