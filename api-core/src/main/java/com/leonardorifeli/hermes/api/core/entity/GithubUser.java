@@ -32,7 +32,7 @@ public class GithubUser {
 		this.githubRepositories = githubRepositories;
 	}
 
-	public User(String name, String email) {
+	public GithubUser(String name, String email) {
         this.name = name;
         this.email = email;
     }

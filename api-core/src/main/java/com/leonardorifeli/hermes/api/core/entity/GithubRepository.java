@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.leonardorifeli.hermes.api.core.entity.User;
+import com.leonardorifeli.hermes.api.core.entity.GithubUser;
 
 @Entity
 @Table(name="github_repository")
@@ -18,9 +18,9 @@ public class GithubRepository {
     private String name;
     
     @ManyToOne
-    private User user;
+    private GithubUser githubUser;
     
-    public Repository(String name) {
+    public GithubRepository(String name) {
         this.name = name;
     }
  
@@ -40,12 +40,12 @@ public class GithubRepository {
         this.name = name;
     }
     
-    public User getUser() {
-        return this.user;
+    public GithubUser getGithubUser() {
+        return this.githubUser;
     }
  
-    public void setUser(User user) {
-        this.user = user;
+    public void setGithubUser(GithubUser githubUser) {
+        this.githubUser = githubUser;
     }
     
     @Override
