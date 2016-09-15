@@ -19,8 +19,11 @@ import org.json.simple.JSONObject;
 @Produces("application/json")
 public class GithubImportProccessResource {
 
-	@Inject
 	private GithubStartMessageService githubStartMessageService;
+	
+	public GithubImportProccessResource() {
+		this.githubStartMessageService = new GithubStartMessageService();
+	}
 
 	@GET
 	@Path("{username}")

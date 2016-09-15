@@ -12,18 +12,19 @@ import org.json.simple.JSONObject;
 
 public class GithubStartMessageService {
 
-	@Inject
 	private SendMessageService jobSendMessageService;
 	
 	private GithubStartJobQueueEnum jobQueueConfig;
-
-	private SendMessageService getJobSendMessageService() {
-		return this.jobSendMessageService;
+	
+	public GithubStartMessageService() {
+		this.jobSendMessageService = new SendMessageService();
 	}
 
 	public void start(String username) {
 		try {
-			this.getJobSendMessageService().sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
+			System.out.println("chegou aqui.");
+			this.jobSendMessageService.sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
+			System.out.println("saiu.");
 		} catch (IOException e) {
 
 		} catch (TimeoutException e) {

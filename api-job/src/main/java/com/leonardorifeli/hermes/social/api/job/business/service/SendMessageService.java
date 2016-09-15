@@ -66,12 +66,15 @@ public class SendMessageService {
 
     public void sendMessage(String msg, String queueName) throws IOException, TimeoutException {
         Channel channel = this.getChannel();
+        
+        System.out.println("enviando mensagem "+msg+" para "+queueName);
+        /*
         this.queueDeclare(queueName, channel);
-
+        
         channel.basicPublish("", queueName, null, msg.getBytes());
 
         channel.close();
-        this.getConnection().close();
+        this.getConnection().close();*/
     }
    
 }
