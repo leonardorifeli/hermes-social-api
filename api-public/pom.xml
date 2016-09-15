@@ -19,12 +19,6 @@
     <dependencies>
         <dependency>
             <groupId>com.leonardorifeli.hermes.social.api</groupId>
-            <artifactId>api-core</artifactId>
-            <version>1.0</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.leonardorifeli.hermes.social.api</groupId>
             <artifactId>api-job</artifactId>
             <version>1.0</version>
         </dependency>
@@ -89,7 +83,5 @@
             </plugin>
         </plugins>
     </build>
-    
-    <groupId>com.leonardorifeli.hermes.social.api</groupId>
-    <version>1.0</version>
+ 
 </project>
