@@ -3,6 +3,8 @@ package com.leonardorifeli.hermes.social.api.job.business.service;
 import com.leonardorifeli.hermes.social.api.job.business.enums.GithubStartJobQueueEnum;
 import com.leonardorifeli.hermes.social.api.job.business.service.SendMessageService;
 
+import javax.inject.Inject;
+
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -15,12 +17,18 @@ public class GithubStartMessageService {
 	
 	private GithubStartJobQueueEnum jobQueueConfig;
 
-	private SendService getJobSendMessageService() {
-		return this.jobSendMessageService
+	private SendMessageService getJobSendMessageService() {
+		return this.jobSendMessageService;
 	}
 
 	public void start(String username) {
-		this.getJobSendMessageService().sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
+		try {
+			this.getJobSendMessageService().sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
+		} catch (IOException e) {
+
+		} catch (TimeoutException e) {
+
+		}
 	}
 
 	private String getMessageByUsername(String username) {

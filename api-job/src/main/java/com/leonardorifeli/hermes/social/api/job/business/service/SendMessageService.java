@@ -1,6 +1,6 @@
 package com.leonardorifeli.hermes.social.api.job.business.service;
 
-import com.leonardorifeli.hermes.social.api.job.business.enums.RabbitInfoConfiguration;
+import com.leonardorifeli.hermes.social.api.job.business.enums.RabbitInfoConfigurationEnum;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
@@ -11,12 +11,12 @@ import java.util.concurrent.TimeoutException;
 
 public class SendMessageService {
 	
-    private RabbitInfoToConfiguration rabbitConf;
+    private RabbitInfoConfigurationEnum rabbitConf;
     private ConnectionFactory connectionFactory;
     private Connection connection;
     private Channel channel;
 
-    private RabbitInfoToConfiguration getRabbitConf() {
+    private RabbitInfoConfigurationEnum getRabbitConf() {
         return this.rabbitConf;
     }
 

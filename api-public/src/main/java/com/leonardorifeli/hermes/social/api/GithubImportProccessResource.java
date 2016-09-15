@@ -25,14 +25,7 @@ public class GithubImportProccessResource {
 	@GET
 	@Path("{username}")
 	public Response builderProccess(@PathParam("username") String username) {
-
-		try {
-			this.githubStartMessageService.start(username);
-		} catch (IOException e) {
-
-		} catch (TimeoutException e) {
-
-		}
+		this.githubStartMessageService.start(username);
 
 		return Response.status(200).entity(this.getResult(username, true)).build();
 	}
