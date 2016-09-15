@@ -19,13 +19,7 @@ public class GithubStartMessageService {
 	}
 
 	public void start(String username) {
-		try {
-			this.getJobSendMessageService().sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
-		} catch (IOException e) {
-			
-		} catch (TimeoutException e) {
-			
-		}
+		this.getJobSendMessageService().sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
 	}
 
 	private String getMessageByUsername(String username) {

@@ -22,6 +22,12 @@
             <artifactId>api-core</artifactId>
             <version>1.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>com.leonardorifeli.hermes.social.api.job</groupId>
+            <artifactId>api-job</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
