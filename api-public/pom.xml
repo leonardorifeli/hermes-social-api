@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.leonardorifeli.hermes.social.api.core</groupId>
+            <groupId>com.leonardorifeli.hermes.social.api</groupId>
             <artifactId>api-core</artifactId>
             <version>1.0</version>
         </dependency>

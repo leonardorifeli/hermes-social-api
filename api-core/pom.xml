@@ -50,6 +50,5 @@
         </dependency>
     </dependencies>
 
-    <groupId>com.leonardorifeli.hermes.social.api.core</groupId>
     <version>1.0</version>
 </project>

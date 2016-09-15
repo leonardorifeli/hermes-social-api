@@ -1,4 +1,4 @@
-package com.leonardorifeli.hermes.api.core.business.service;
+package com.leonardorifeli.hermes.api.business.service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

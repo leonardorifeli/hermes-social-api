@@ -1,10 +1,10 @@
-package com.leonardorifeli.hermes.api.core.entity;
+package com.leonardorifeli.hermes.api.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
-import com.leonardorifeli.hermes.api.core.entity.GithubRepository;
+import com.leonardorifeli.hermes.api.entity.GithubRepository;
 
 @Entity
 @Table(name = "github_user")
