@@ -1,4 +1,4 @@
-package com.leonardorifeli.hermes.api.business.enums;
+package com.leonardorifeli.hermes.social.api.job.business.enums;
 
 public abstract class GithubStartJobQueueEnum {
 
