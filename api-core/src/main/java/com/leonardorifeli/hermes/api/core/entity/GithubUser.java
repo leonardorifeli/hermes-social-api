@@ -8,8 +8,8 @@ import javax.persistence.*;
 import com.leonardorifeli.hermes.api.core.entity.Repository;
 
 @Entity
-@Table(name="user")
-public class User {
+@Table(name="github_user")
+public class GithubUser {
 	
     @Id
     @GeneratedValue

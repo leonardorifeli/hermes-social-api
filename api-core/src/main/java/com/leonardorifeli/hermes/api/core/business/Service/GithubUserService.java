@@ -6,7 +6,7 @@ import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
 import java.util.List;
 
-public class UserService {
+public class GithubUserService {
 	
 	@PersistenceContext(unitName = "user", type = PersistenceContextType.EXTENDED)
     private EntityManager entityManager;
