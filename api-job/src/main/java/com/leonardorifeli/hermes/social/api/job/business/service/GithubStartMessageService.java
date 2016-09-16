@@ -22,13 +22,11 @@ public class GithubStartMessageService {
 
 	public void start(String username) {
 		try {
-			System.out.println("chegou aqui.");
 			this.jobSendMessageService.sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
-			System.out.println("saiu.");
 		} catch (IOException e) {
-
+			
 		} catch (TimeoutException e) {
-
+			
 		}
 	}
 

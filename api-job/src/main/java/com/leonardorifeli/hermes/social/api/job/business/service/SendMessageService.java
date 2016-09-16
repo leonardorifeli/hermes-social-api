@@ -36,7 +36,7 @@ public class SendMessageService {
         factory.setUsername(this.getRabbitConf().getUsername());
         factory.setPort(this.getRabbitConf().getPort());
         factory.setPassword(this.getRabbitConf().getPassword());
-
+ 
         return factory;
     }
 
@@ -44,8 +44,10 @@ public class SendMessageService {
         if(this.connection != null) {
             return this.connection;
         }
-
+        
+        System.out.println("criando conexão ");
         this.connection = this.getConnectionFactory().newConnection();
+        System.out.println("criou conexão ");
 
         return this.connection;
     }
@@ -65,16 +67,14 @@ public class SendMessageService {
     }
 
     public void sendMessage(String msg, String queueName) throws IOException, TimeoutException {
-        Channel channel = this.getChannel();
+    	Channel channel = this.getChannel();
         
-        System.out.println("enviando mensagem "+msg+" para "+queueName);
-        /*
         this.queueDeclare(queueName, channel);
         
         channel.basicPublish("", queueName, null, msg.getBytes());
 
         channel.close();
-        this.getConnection().close();*/
+        this.getConnection().close();
     }
    
 }
