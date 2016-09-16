@@ -18,11 +18,11 @@ public class SendMessageService extends JobQueueService {
         channel.queueDeclare(queueName, false, false, false, null);
     }
     
-    private void publishMessage(Channel channel, Serializable message, String queueName) throws IOException, TimeoutException {
+    private void publishMessage(Channel channel, String message, String queueName) throws IOException, TimeoutException {
     	channel.basicPublish("", queueName, null, SerializationUtils.serialize(message));
     }
     
-    public void sendMessage(Serializable message, String queueName) throws IOException, TimeoutException {
+    public void sendMessage(String message, String queueName) throws IOException, TimeoutException {
     	Channel channel = this.getChannel();
         
         this.queueDeclare(queueName, channel);

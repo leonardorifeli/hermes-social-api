@@ -14,6 +14,10 @@ public class GithubStartImport {
 	
 	private GithubSendMessageService githubSendMessageService;
 	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	public GithubStartImport() {
 		this.githubSendMessageService = new GithubSendMessageService();
 	}
@@ -23,7 +27,7 @@ public class GithubStartImport {
 			this.githubSendMessageService.addParam("repository", "hahaha");
 			this.githubSendMessageService.addParam("name", "hahaha name");
 			
-			this.githubSendMessageService.start(this.username, "import", jobQueueImportConfig.getQueueName());
+			this.sendMessage();
 		}
 	}
 	

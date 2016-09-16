@@ -15,7 +15,7 @@
 		<junit-version>4.8.2</junit-version>
 		<rabbitmq-version>3.6.5</rabbitmq-version>
 		<github-api-version>2.1.5</github-api-version>
-		<json-simple-version>1.1.1</json-simple-version>
+		<orgjson-version>20160810</orgjson-version>
 	</properties>
 
 	<modules>
@@ -101,9 +101,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>com.googlecode.json-simple</groupId>
-				<artifactId>json-simple</artifactId>
-				<version>${json-simple-version}</version>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${orgjson-version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

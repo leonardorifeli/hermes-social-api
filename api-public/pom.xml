@@ -62,9 +62,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>${json-simple-version}</version>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
         </dependency>
 
     </dependencies>

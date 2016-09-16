@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 @Path("/import/github")
 @Produces("application/json")
@@ -27,12 +27,16 @@ public class GithubImportProccessResource {
 	public GithubImportProccessResource() {
 		this.githubSendMessageService = new GithubSendMessageService();
 	}
+	
+	private String getQueueName() {
+		return jobQueueConfig.getQueueName();
+	}
 
 	@GET
 	@Path("{username}")
 	public Response builderProccess(@PathParam("username") String username) {
-		this.githubSendMessageService.start(username, "import", jobQueueConfig.getQueueName());
-
+		this.githubSendMessageService.start(username, "import", this.getQueueName());
+		
 		return Response.status(200).entity(this.getResult(username, true)).build();
 	}
 

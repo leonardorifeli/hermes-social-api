@@ -11,6 +11,8 @@ import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.lang.SerializationUtils;
 
+import org.json.JSONObject;
+
 import com.rabbitmq.client.AMQP.BasicProperties;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.Envelope;
@@ -26,7 +28,7 @@ public class ConsumerMessageService extends JobQueueService implements Runnable,
 		this.queueName = queueName;
 	}
 	
-	private JobQueueActionService getJobQueueActionService(Map message) {
+	private JobQueueActionService getJobQueueActionService(JSONObject message) {
 		return new JobQueueActionService(message);
 	}
 	
@@ -45,9 +47,14 @@ public class ConsumerMessageService extends JobQueueService implements Runnable,
 	}
 
 	public void handleDelivery(String consumerTag, Envelope env, BasicProperties props, byte[] body) throws IOException {
-		Map message = (HashMap)SerializationUtils.deserialize(body);
-		
-		JobQueueActionService jobQueueAction = this.getJobQueueActionService(message);
+		String message = new String(body, "UTF-8");
+
+		JSONObject messageSend = new JSONObject("{" + message + "}");
+
+        System.out.println(messageSend.toString());
+
+		JobQueueActionService jobQueueAction = this.getJobQueueActionService(messageSend);
+
 		jobQueueAction.start();
 	}
 

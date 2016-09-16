@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 public class GithubSendMessageService {
 
@@ -23,9 +23,8 @@ public class GithubSendMessageService {
 	List<ParamProperty> params = new ArrayList<ParamProperty>();
 	
 	public void addParam(String key, String value) {
-		ParamProperty param = new ParamProperty();
-		param.setKey(key);
-		param.setValue(value);
+		ParamProperty param = new ParamProperty(key, value);
+		this.params.add(param);
 	}
 	
 	public GithubSendMessageService() {
@@ -44,22 +43,25 @@ public class GithubSendMessageService {
 		}
 	}
 
-	private HashMap getMessageByUsername(String username, String action, String queueName) {
-		HashMap message = new HashMap();
+	private String getMessageByUsername(String username, String action, String queueName) {
+		JSONObject message = new JSONObject();
+
 		message.put("username", username);
-		message.put("queueName", queueName);
+		message.put("queueName", username);
 		message.put("action", action);
 		
 		this.checkParams(message);
 
-		return message;
+		return message.toString();
 	}
 	
-	private void checkParams(HashMap message) {
+	private void checkParams(JSONObject message) {
 		if(this.params.size() > 0) {
-			for (int i = 0; i < this.params.size(); i++) {
+			for(int i = 0; i < this.params.size(); i++) {
 				String value = this.params.get(i).getValue();
 				String key = this.params.get(i).getKey();
+
+				System.out.println("Peguei um param: "+value+" e key "+ key);
 				
 				message.put(key, value);
 			}
