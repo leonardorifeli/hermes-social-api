@@ -6,13 +6,19 @@ import java.util.HashMap;
 
 public class GithubConsumerMessageService {
 	
-	public void start(String queueName) {
-		
+	private ConsumerMessageService consumerMessageservice;
+	
+	public GithubConsumerMessageService() {
+		this.consumerMessageservice = new ConsumerMessageService();
 	}
 	
-	private void startThread(String queueName, GithubConsumerMessageService githubConsumerMessageService) {
-		this.setQueueName(queueName);
-		Thread consumerThread = new Thread(githubConsumerMessageService);
+	public void start(String queueName) {
+		this.consumerMessageservice.setQueueName(queueName);
+		this.startThread(this.consumerMessageservice);
+	}
+	
+	private void startThread(ConsumerMessageService consumerMessageservice) {
+		Thread consumerThread = new Thread(consumerMessageservice);
 		consumerThread.start();
 	}
 	

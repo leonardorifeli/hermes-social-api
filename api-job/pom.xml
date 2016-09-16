@@ -12,6 +12,12 @@
 
 	<dependencies>
 		<dependency>
+            <groupId>com.leonardorifeli.hermes.social.api</groupId>
+            <artifactId>api-core</artifactId>
+            <version>1.0</version>
+        </dependency>
+        
+		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 		</dependency>
@@ -24,6 +30,11 @@
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
 		</dependency>
 
 		<dependency>

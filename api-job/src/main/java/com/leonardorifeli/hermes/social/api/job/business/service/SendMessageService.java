@@ -1,12 +1,16 @@
 package com.leonardorifeli.hermes.social.api.job.business.service;
 
 import com.leonardorifeli.hermes.social.api.job.business.enums.RabbitInfoConfigurationEnum;
+import com.leonardorifeli.hermes.social.api.job.business.service.JobQueueService;
+
+import org.apache.commons.lang.SerializationUtils;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.concurrent.TimeoutException;
 
 public class SendMessageService extends JobQueueService {
@@ -15,17 +19,15 @@ public class SendMessageService extends JobQueueService {
         channel.queueDeclare(queueName, false, false, false, null);
     }
     
-    private void publishMessage(Channel channel, Stirng message, String QueueName) {
-    	channel.basicPublish("", queueName, null, message.getBytes());
+    private void publishMessage(Channel channel, Serializable message, String queueName) throws IOException, TimeoutException {
+    	channel.basicPublish("", queueName, null, SerializationUtils.serialize(message));
     }
     
-    public void sendMessage(String msg, String queueName) throws IOException, TimeoutException {
+    public void sendMessage(Serializable message, String queueName) throws IOException, TimeoutException {
     	Channel channel = this.getChannel();
         
         this.queueDeclare(queueName, channel);
-        this.publishMessage(channel, message, QueueName);
-        this.channelClose(channel);
-        this.connectionClose();
+        this.publishMessage(channel, message, queueName);
     }
    
 }

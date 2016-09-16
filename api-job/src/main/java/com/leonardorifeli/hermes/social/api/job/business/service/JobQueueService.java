@@ -60,11 +60,11 @@ public class JobQueueService {
         return this.channel;
     }
     
-    public void connectionClose() {
+    public void connectionClose() throws IOException, TimeoutException {
     	this.getConnection().close();
     }
     
-    public void channelClose() {
+    public void channelClose() throws IOException, TimeoutException {
     	this.getChannel().close();
     }
     

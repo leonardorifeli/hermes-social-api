@@ -1,12 +1,13 @@
 package com.leonardorifeli.hermes.social.api.job.business.service;
 
-import com.leonardorifeli.hermes.social.api.job.business.enums.GithubStartJobQueueEnum;
+import com.leonardorifeli.hermes.social.api.job.business.property.ParamProperty;
 import com.leonardorifeli.hermes.social.api.job.business.service.GithubConsumerMessageService;
 import com.leonardorifeli.hermes.social.api.job.business.service.SendMessageService;
 
 import javax.inject.Inject;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
 
 import org.json.simple.JSONObject;
@@ -17,17 +18,23 @@ public class GithubSendMessageService {
 	
 	private GithubConsumerMessageService githubConsumerMessageService;
 	
-	private GithubStartJobQueueEnum jobQueueConfig;
+	List<ParamProperty> params = new ArrayList<ParamProperty>();
 	
-	public GithubSendMessageService() {
-		this.jobSendMessageService = new SendMessageService();
-		this.githubConsumerMessageService = new GithubConsumerMessageService();
+	public void addParam(String key, HashMap value) {
+		ParamProperty param = new ParamProperty();
+		param.setKey(key);
+		param.setValue(value);
 	}
 	
-	public void start(String username) {
+	public GithubSendMessageService() {
+		this.githubConsumerMessageService = new GithubConsumerMessageService();
+		this.jobSendMessageService = new SendMessageService();
+	}
+	
+	public void start(String username, String action, String queueName) {
 		try {
-			this.githubConsumerMessageService.start(jobQueueConfig.getQueueName());
-			this.jobSendMessageService.sendMessage(this.getMessageByUsername(username), jobQueueConfig.getQueueName());
+			this.githubConsumerMessageService.start(queueName);
+			this.jobSendMessageService.sendMessage(this.getMessageByUsername(username, action, queueName), queueName);
 		} catch (IOException e) {
 			
 		} catch (TimeoutException e) {
@@ -35,13 +42,26 @@ public class GithubSendMessageService {
 		}
 	}
 
-	private String getMessageByUsername(String username) {
-		JSONObject message = new JSONObject();
-
+	private HashMap getMessageByUsername(String username, String action, String queueName) {
+		HashMap message = new HashMap();
 		message.put("username", username);
-		message.put("action", "start");
+		message.put("queueName", queueName);
+		message.put("action", action);
+		
+		this.checkParams(message);
 
-		return message.toString();
+		return message;
+	}
+	
+	private void checkParams(HashMap message) {
+		if(this.params.size() > 0) {
+			for (int i = 0; i < this.params.length; i++) {
+				HashMap value = this.params[i].getValue();
+				String key = this.params[i].getKey();
+				
+				message.put(key, value);
+			}
+		}
 	}
 
 }

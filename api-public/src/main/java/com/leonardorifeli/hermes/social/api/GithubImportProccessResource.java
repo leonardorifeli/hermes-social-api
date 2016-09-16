@@ -1,5 +1,6 @@
 package com.leonardorifeli.hermes.social.api;
 
+import com.leonardorifeli.hermes.social.api.job.business.enums.GithubStartJobQueueEnum;
 import com.leonardorifeli.hermes.social.api.job.business.service.GithubSendMessageService;
 
 import javax.inject.Inject;
@@ -21,6 +22,8 @@ public class GithubImportProccessResource {
 
 	private GithubSendMessageService githubSendMessageService;
 	
+	private GithubStartJobQueueEnum jobQueueConfig;
+	
 	public GithubImportProccessResource() {
 		this.githubSendMessageService = new GithubSendMessageService();
 	}
@@ -28,7 +31,7 @@ public class GithubImportProccessResource {
 	@GET
 	@Path("{username}")
 	public Response builderProccess(@PathParam("username") String username) {
-		this.githubSendMessageService.start(username);
+		this.githubSendMessageService.start(username, "import", jobQueueConfig.getQueueName());
 
 		return Response.status(200).entity(this.getResult(username, true)).build();
 	}
