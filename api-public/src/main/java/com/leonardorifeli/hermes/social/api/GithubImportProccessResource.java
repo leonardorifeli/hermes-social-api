@@ -1,6 +1,6 @@
 package com.leonardorifeli.hermes.social.api;
 
-import com.leonardorifeli.hermes.social.api.job.business.service.GithubStartMessageService;
+import com.leonardorifeli.hermes.social.api.job.business.service.GithubSendMessageService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -19,16 +19,16 @@ import org.json.simple.JSONObject;
 @Produces("application/json")
 public class GithubImportProccessResource {
 
-	private GithubStartMessageService githubStartMessageService;
+	private GithubSendMessageService githubSendMessageService;
 	
 	public GithubImportProccessResource() {
-		this.githubStartMessageService = new GithubStartMessageService();
+		this.githubSendMessageService = new GithubSendMessageService();
 	}
 
 	@GET
 	@Path("{username}")
 	public Response builderProccess(@PathParam("username") String username) {
-		this.githubStartMessageService.start(username);
+		this.githubSendMessageService.start(username);
 
 		return Response.status(200).entity(this.getResult(username, true)).build();
 	}
