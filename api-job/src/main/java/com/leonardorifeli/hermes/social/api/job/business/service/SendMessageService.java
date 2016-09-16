@@ -61,20 +61,30 @@ public class SendMessageService {
 
         return this.channel;
     }
+    
+    private void connectionClose() {
+    	this.getConnection().close();
+    }
 
     private void queueDeclare(String queueName, Channel channel) throws IOException, TimeoutException {
         channel.queueDeclare(queueName, false, false, false, null);
     }
-
+    
+    private void publishMessage(Channel channel, Stirng message, String QueueName) {
+    	channel.basicPublish("", queueName, null, message.getBytes());
+    }
+    
+    private void channelClose(Channel channel) {
+    	channel.close();
+    }
+    
     public void sendMessage(String msg, String queueName) throws IOException, TimeoutException {
     	Channel channel = this.getChannel();
         
         this.queueDeclare(queueName, channel);
-        
-        channel.basicPublish("", queueName, null, msg.getBytes());
-
-        channel.close();
-        this.getConnection().close();
+        this.publishMessage(channel, message, QueueName);
+        this.channelClose(channel);
+        this.connectionClose();
     }
    
 }
