@@ -1,9 +1,10 @@
-package com.leonardorifeli.hermes.social.api.core.business.service;
+package com.leonardorifeli.hermes.social.api.job.business.service;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.leonardorifeli.hermes.social.api.job.business.enums.GithubImportJobQueueEnum;
+import com.leonardorifeli.hermes.social.api.job.business.service.GithubSendMessageService;
+import com.leonardorifeli.hermes.social.api.custom.business.enums.GithubImportJobQueueEnum;
 
 public class GithubStartImport {
 	
@@ -11,15 +12,16 @@ public class GithubStartImport {
 	
 	private GithubImportJobQueueEnum jobQueueImportConfig;
 	
+	private GithubSendMessageService githubSendMessageService;
+	
 	public GithubStartImport() {
 		this.githubSendMessageService = new GithubSendMessageService();
 	}
 	
 	public void start() {
-		for (int i = 0; i < 10; i++) {
-			HashMap value = new HashMap();
-			value.put("name", "teste de repo");
-			this.githubSendMessageService.addParam("repository", value);
+		for (int i = 0; i < 100; i++) {
+			this.githubSendMessageService.addParam("repository", "hahaha");
+			this.githubSendMessageService.addParam("name", "hahaha name");
 			
 			this.githubSendMessageService.start(this.username, "import", jobQueueImportConfig.getQueueName());
 		}

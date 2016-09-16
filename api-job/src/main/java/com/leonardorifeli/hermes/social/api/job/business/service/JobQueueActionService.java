@@ -2,9 +2,9 @@ package com.leonardorifeli.hermes.social.api.job.business.service;
 
 import java.util.Map;
 
-import com.leonardorifeli.hermes.social.api.core.business.service.GithubStartImport;
-import com.leonardorifeli.hermes.social.api.job.business.enums.GithubStartJobQueueEnum;
-import com.leonardorifeli.hermes.social.api.job.business.enums.GithubImportJobQueueEnum;
+import com.leonardorifeli.hermes.social.api.job.business.service.GithubStartImport;
+import com.leonardorifeli.hermes.social.api.custom.business.enums.GithubStartJobQueueEnum;
+import com.leonardorifeli.hermes.social.api.custom.business.enums.GithubImportJobQueueEnum;
 
 public class JobQueueActionService {
 	
@@ -20,7 +20,7 @@ public class JobQueueActionService {
 	
 	public void start() {
 		if(this.message.get("queueName") == jobQueueStartConfig.getQueueName()) {
-			this.startGithubByUsername(this.message.get("username"));
+			this.startGithubImportByUsername(this.message.get("username"));
 		}
 		
 		if(this.message.get("queueName") == jobQueueImportConfig.getQueueName()) {
@@ -28,10 +28,8 @@ public class JobQueueActionService {
 		}
 	}
 	
-	private void startGithubByUsername(String username) {
-		GithubStartImport startGithub = new GithubStartImport();
-		startGithub.setUsername(username);
-		startGithub.start();
+	private void startGithubImportByUsername(Object username) {
+		System.out.println("haha "+ username);
 	}
 	
 }

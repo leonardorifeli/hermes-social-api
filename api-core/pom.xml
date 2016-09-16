@@ -33,11 +33,6 @@
         </dependency>
         
         <dependency>
-            <groupId>com.rabbitmq</groupId>
-            <artifactId>amqp-client</artifactId>
-        </dependency>
-        
-        <dependency>
 		    <groupId>org.eclipse.mylyn.github</groupId>
 		    <artifactId>org.eclipse.egit.github.core</artifactId>
 		</dependency>

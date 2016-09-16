@@ -1,6 +1,6 @@
 package com.leonardorifeli.hermes.social.api;
 
-import com.leonardorifeli.hermes.social.api.job.business.enums.GithubStartJobQueueEnum;
+import com.leonardorifeli.hermes.social.api.custom.business.enums.GithubStartJobQueueEnum;
 import com.leonardorifeli.hermes.social.api.job.business.service.GithubSendMessageService;
 
 import javax.inject.Inject;

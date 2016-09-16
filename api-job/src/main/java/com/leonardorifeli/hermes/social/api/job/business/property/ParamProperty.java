@@ -6,7 +6,7 @@ public class ParamProperty {
 	
 	private String key;
 	
-	private HashMap value;
+	private String value;
 	
 	public String getKey() {
 		return this.key;
@@ -20,7 +20,7 @@ public class ParamProperty {
 		return this.value;
 	}
 	
-	public void setValue(HashMap value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 	

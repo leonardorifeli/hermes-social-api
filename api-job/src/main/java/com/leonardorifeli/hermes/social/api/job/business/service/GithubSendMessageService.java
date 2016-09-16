@@ -7,7 +7,9 @@ import com.leonardorifeli.hermes.social.api.job.business.service.SendMessageServ
 import javax.inject.Inject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import org.json.simple.JSONObject;
@@ -20,7 +22,7 @@ public class GithubSendMessageService {
 	
 	List<ParamProperty> params = new ArrayList<ParamProperty>();
 	
-	public void addParam(String key, HashMap value) {
+	public void addParam(String key, String value) {
 		ParamProperty param = new ParamProperty();
 		param.setKey(key);
 		param.setValue(value);
@@ -55,9 +57,9 @@ public class GithubSendMessageService {
 	
 	private void checkParams(HashMap message) {
 		if(this.params.size() > 0) {
-			for (int i = 0; i < this.params.length; i++) {
-				HashMap value = this.params[i].getValue();
-				String key = this.params[i].getKey();
+			for (int i = 0; i < this.params.size(); i++) {
+				String value = this.params.get(i).getValue();
+				String key = this.params.get(i).getKey();
 				
 				message.put(key, value);
 			}

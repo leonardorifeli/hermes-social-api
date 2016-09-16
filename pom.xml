@@ -21,6 +21,7 @@
 	<modules>
 		<module>api-public</module>
 		<module>api-core</module>
+		<module>api-custom</module>
 		<module>api-job</module>
 	</modules>
 

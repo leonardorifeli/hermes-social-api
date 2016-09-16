@@ -1,6 +1,5 @@
 package com.leonardorifeli.hermes.social.api.job.business.service;
 
-import com.leonardorifeli.hermes.social.api.job.business.enums.RabbitInfoConfigurationEnum;
 import com.leonardorifeli.hermes.social.api.job.business.service.JobQueueService;
 
 import org.apache.commons.lang.SerializationUtils;
