@@ -1,11 +1,9 @@
 package com.leonardorifeli.hermes.social.api.job.business.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.json.JSONObject;
 
-import com.leonardorifeli.hermes.social.api.job.business.service.GithubStartJobImport;
+import com.leonardorifeli.hermes.social.api.job.business.service.GithubStartImportService;
+import com.leonardorifeli.hermes.social.api.job.business.service.GithubStartJobImportService;
 import com.leonardorifeli.hermes.social.api.custom.business.enums.GithubStartJobQueueEnum;
 import com.leonardorifeli.hermes.social.api.custom.business.enums.GithubImportJobQueueEnum;
 
@@ -27,13 +25,18 @@ public class JobQueueActionService {
 		}
 
 		if(this.message.get("queueName").equals(jobQueueImportConfig.getQueueName())) {
-			System.out.println("Importando do github "+this.message.toString());
+            this.startGithubImportJobByUsername(this.message);
 		}
 	}
 	
 	private void startGithubSendJobByUsername(JSONObject message) {
-        GithubStartJobImport startGithub = new GithubStartJobImport(message.getString("username"));
+        GithubStartJobImportService startGithub = new GithubStartJobImportService(message.getString("username"));
 		startGithub.start();
 	}
+
+    private void startGithubImportJobByUsername(JSONObject message) {
+        GithubStartImportService startGithub = new GithubStartImportService(message);
+        startGithub.start();
+    }
 	
 }

@@ -1,7 +1,5 @@
 package com.leonardorifeli.hermes.social.api.job.business.property;
 
-import java.util.HashMap;
-
 public class ParamProperty {
 	
 	private String key;

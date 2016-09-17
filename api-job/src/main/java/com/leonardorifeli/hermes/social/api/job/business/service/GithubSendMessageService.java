@@ -7,6 +7,8 @@ import com.leonardorifeli.hermes.social.api.job.business.service.SendMessageServ
 import javax.inject.Inject;
 
 import java.io.IOException;
+import java.sql.Blob;
+import java.sql.Clob;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,7 +37,6 @@ public class GithubSendMessageService {
 	public void start(String username, String action, String queueName) {
 		try {
 			this.githubConsumerMessageService.start(queueName);
-            System.out.println("Enviando novo json: "+ this.getMessageByUsername(username, action, queueName));
 			this.jobSendMessageService.sendMessage(this.getMessageByUsername(username, action, queueName), queueName);
 		} catch (IOException e) {
 			
@@ -59,7 +60,7 @@ public class GithubSendMessageService {
 	private void checkParams(JSONObject message) {
 		if(this.params.size() > 0) {
 			for(int i = 0; i < this.params.size(); i++) {
-				String value = this.params.get(i).getValue();
+                String value = this.params.get(i).getValue();
 				String key = this.params.get(i).getKey();
 				
 				message.put(key, value);

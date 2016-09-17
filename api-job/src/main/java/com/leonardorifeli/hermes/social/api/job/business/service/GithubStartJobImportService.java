@@ -1,5 +1,6 @@
 package com.leonardorifeli.hermes.social.api.job.business.service;
 
+import java.sql.Clob;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +8,7 @@ import com.leonardorifeli.hermes.social.api.job.business.service.GithubSendMessa
 import com.leonardorifeli.hermes.social.api.custom.business.enums.GithubImportJobQueueEnum;
 import com.leonardorifeli.hermes.social.api.core.business.service.UrlRequestService;
 
-public class GithubStartJobImport {
+public class GithubStartJobImportService {
 
 	private String username;
 
@@ -21,7 +22,7 @@ public class GithubStartJobImport {
 
     private String urlRepository = "https://api.github.com/users/:username/repos";
 
-	public GithubStartJobImport(String username) {
+	public GithubStartJobImportService(String username) {
 		this.username = username;
 		this.githubSendMessageService = new GithubSendMessageService();
 	}
@@ -33,7 +34,7 @@ public class GithubStartJobImport {
         String repositoriesJson = this.getRepositoryInJson();
         this.githubSendMessageService.addParam("repositories", repositoriesJson);
 
-        this.sendMessage();
+        this.githubSendMessageService.start(this.username, "github", jobQueueImportConfig.getQueueName());
 	}
 
 	private String getUsernameInJson() {
@@ -43,9 +44,5 @@ public class GithubStartJobImport {
     private String getRepositoryInJson() {
         return urlRequestService.getJsonByUrl(this.urlRepository.replace(":username", this.username));
     }
-
-	private void sendMessage() {
-		this.githubSendMessageService.start(this.username, "import", jobQueueImportConfig.getQueueName());
-	}
 	
 }
