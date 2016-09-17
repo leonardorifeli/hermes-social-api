@@ -22,7 +22,11 @@ public class GithubStartImportService {
 
         this.println("Username: "+ user.getString("login"));
         this.println("Name: "+ user.getString("name"));
-        this.println("Description: "+ user.getInt("public_repos"));
+
+        if(user.isNull("description") == false) {
+            this.println("Description: "+ user.getString("description"));
+        }
+
         this.println("Company: "+ user.getString("company"));
         this.println("Blog: "+ user.getString("blog"));
         this.println("Public_repos: "+ user.getInt("public_repos"));
@@ -40,9 +44,18 @@ public class GithubStartImportService {
             this.println("## Repository ("+i+"):");
             this.println("Id: "+ repository.getInt("id"));
             this.println("Name: "+ repository.getString("name"));
+
+            if(repository.isNull("description") == false) {
+                this.println("Description: "+ repository.getString("description"));
+            }
+
             this.println("Full Name: "+ repository.getString("full_name"));
             this.println("URL: "+ repository.getString("html_url"));
-            if(repository.isNull("language")) this.println("Language: "+ repository.getString("language"));
+
+            if(repository.isNull("language") == false) {
+                this.println("Language: "+ repository.getString("language"));
+            }
+
             this.println("Default Branch: "+ repository.getString("default_branch"));
             this.println("");
         }
