@@ -1,5 +1,5 @@
-JOB QUEUE WITH RABBITMQ
-=====================================
+HERMES SOCIAL API - JOB QUEUE WITH RABBITMQ
+===========================================
 
 This project is an API REST to use rabbitmq for import user and your repositories to job queue.
 
