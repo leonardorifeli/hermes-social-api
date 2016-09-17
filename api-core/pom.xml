@@ -12,7 +12,12 @@
     <packaging>jar</packaging>
 
     <dependencies>
-    	<dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
         </dependency>
@@ -31,17 +36,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        
-        <dependency>
-		    <groupId>org.eclipse.mylyn.github</groupId>
-		    <artifactId>org.eclipse.egit.github.core</artifactId>
-		</dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
 </project>

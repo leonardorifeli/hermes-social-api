@@ -14,7 +14,6 @@
 		<resteasy-version>resteasy-version</resteasy-version>
 		<junit-version>4.8.2</junit-version>
 		<rabbitmq-version>3.6.5</rabbitmq-version>
-		<github-api-version>2.1.5</github-api-version>
 		<orgjson-version>20160810</orgjson-version>
 	</properties>
 
@@ -88,12 +87,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.eclipse.mylyn.github</groupId>
-				<artifactId>org.eclipse.egit.github.core</artifactId>
-				<version>${github-api-version}</version>
-			</dependency>
-
-			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit-version}</version>
@@ -107,11 +100,12 @@
 			</dependency>
 
             <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>2.7</version>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.2</version>
             </dependency>
-		</dependencies>
+
+        </dependencies>
 	</dependencyManagement>
 
 	<build>

@@ -21,13 +21,19 @@ public class GithubStartJobImport {
 
     private String urlRepository = "https://api.github.com/users/:username/repos";
 
-	public GithubStartImport(String username) {
+	public GithubStartJobImport(String username) {
 		this.username = username;
 		this.githubSendMessageService = new GithubSendMessageService();
 	}
 	
 	public void start() {
+	    String userJson = this.getUsernameInJson();
+        this.githubSendMessageService.addParam("userInformation", userJson);
 
+        String repositoriesJson = this.getRepositoryInJson();
+        this.githubSendMessageService.addParam("repositories", repositoriesJson);
+
+        this.sendMessage();
 	}
 
 	private String getUsernameInJson() {
