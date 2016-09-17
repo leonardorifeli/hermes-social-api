@@ -42,9 +42,9 @@ public class GithubStartImportService {
             this.println("Name: "+ repository.getString("name"));
             this.println("Full Name: "+ repository.getString("full_name"));
             this.println("URL: "+ repository.getString("html_url"));
-            this.println("Language: "+ repository.getString("language"));
+            if(repository.isNull("language")) this.println("Language: "+ repository.getString("language"));
             this.println("Default Branch: "+ repository.getString("default_branch"));
-            
+            this.println("");
         }
     }
 
