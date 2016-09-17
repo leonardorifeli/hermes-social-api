@@ -49,12 +49,9 @@ public class ConsumerMessageService extends JobQueueService implements Runnable,
 	public void handleDelivery(String consumerTag, Envelope env, BasicProperties props, byte[] body) throws IOException {
 		String message = new String(body, "UTF-8");
 
-		JSONObject messageSend = new JSONObject("{" + message + "}");
-
-        System.out.println(messageSend.toString());
+        JSONObject messageSend = new JSONObject(message);
 
 		JobQueueActionService jobQueueAction = this.getJobQueueActionService(messageSend);
-
 		jobQueueAction.start();
 	}
 

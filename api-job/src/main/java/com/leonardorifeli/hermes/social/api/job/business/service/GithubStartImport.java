@@ -13,12 +13,9 @@ public class GithubStartImport {
 	private GithubImportJobQueueEnum jobQueueImportConfig;
 	
 	private GithubSendMessageService githubSendMessageService;
-	
-	public void setUsername(String username) {
+
+	public GithubStartImport(String username) {
 		this.username = username;
-	}
-	
-	public GithubStartImport() {
 		this.githubSendMessageService = new GithubSendMessageService();
 	}
 	

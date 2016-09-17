@@ -19,7 +19,7 @@ public class SendMessageService extends JobQueueService {
     }
     
     private void publishMessage(Channel channel, String message, String queueName) throws IOException, TimeoutException {
-    	channel.basicPublish("", queueName, null, SerializationUtils.serialize(message));
+    	channel.basicPublish("", queueName, null, message.getBytes("UTF-8"));
     }
     
     public void sendMessage(String message, String queueName) throws IOException, TimeoutException {

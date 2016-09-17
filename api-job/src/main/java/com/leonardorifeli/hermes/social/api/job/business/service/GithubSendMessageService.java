@@ -35,6 +35,7 @@ public class GithubSendMessageService {
 	public void start(String username, String action, String queueName) {
 		try {
 			this.githubConsumerMessageService.start(queueName);
+            System.out.println("Enviando novo json: "+ this.getMessageByUsername(username, action, queueName));
 			this.jobSendMessageService.sendMessage(this.getMessageByUsername(username, action, queueName), queueName);
 		} catch (IOException e) {
 			
@@ -47,7 +48,7 @@ public class GithubSendMessageService {
 		JSONObject message = new JSONObject();
 
 		message.put("username", username);
-		message.put("queueName", username);
+		message.put("queueName", queueName);
 		message.put("action", action);
 		
 		this.checkParams(message);
@@ -60,8 +61,6 @@ public class GithubSendMessageService {
 			for(int i = 0; i < this.params.size(); i++) {
 				String value = this.params.get(i).getValue();
 				String key = this.params.get(i).getKey();
-
-				System.out.println("Peguei um param: "+value+" e key "+ key);
 				
 				message.put(key, value);
 			}

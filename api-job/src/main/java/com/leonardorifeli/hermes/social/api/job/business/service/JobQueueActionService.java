@@ -22,19 +22,17 @@ public class JobQueueActionService {
 	}
 	
 	public void start() {
-		if(this.message.getString("queueName") == jobQueueStartConfig.getQueueName()) {
-			System.out.println("Eu iniciei para o "+this.message.getString("username"));
+		if(this.message.getString("queueName").equals(jobQueueStartConfig.getQueueName())) {
 			this.startGithubImportByUsername(this.message);
 		}
-		
-		if(this.message.get("queueName") == jobQueueImportConfig.getQueueName()) {
-			System.out.println("Eu iniciei "+this.message.getString("username"));
+
+		if(this.message.get("queueName").equals(jobQueueImportConfig.getQueueName())) {
+			System.out.println("Importando do github "+this.message.toString());
 		}
 	}
 	
 	private void startGithubImportByUsername(JSONObject message) {
-		GithubStartImport startGithub = new GithubStartImport();
-		startGithub.setUsername(message.getString("username"));
+		GithubStartImport startGithub = new GithubStartImport(message.getString("username"));
 		startGithub.start();
 	}
 	
