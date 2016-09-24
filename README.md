@@ -35,7 +35,7 @@ How to start project?
 6. run: $ mvn tomcat7:run;
 7. run in other terminal session: $ curl http://localhost:8080/api/v1/import/github/leonardorifeli or access in your browser.
 
-Ref: Steps in RabbitMQ
+References
 ======================
 
 * RabbitMQ: http://goo.gl/Nr9OYt
